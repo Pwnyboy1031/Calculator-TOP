@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const btn8 = document.querySelector('#calc8');
     const btn9 = document.querySelector('#calc9');
     const btn0 = document.querySelector('#calc0');
+    const btnDec = document.querySelector('#calcDecimal');
     const btnClear = document.querySelector('#calcOn');
     const btnPlus = document.querySelector("#opPlus");
     const btnSub = document.querySelector("#opMinus");
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     function opClick(operator) {
         // if calcmem1 full, add current working number to calcMem2, operate and store to calcMem1, and add operator to display
         if (calcMem1 != null) {
-            calcMem2 = parseInt(displayArray.join(""));
+            calcMem2 = parseFloat(displayArray.join(""));
             calcMem1 = operate(calcMem1,calcMem2,operation); 
             display.innerHTML = calcMem1 + operator;
             console.log(calcMem1);
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
             return;
         }
         //Save entry to calc mem 1, add operator to display, and clear display array
-        calcMem1 = parseInt(displayArray.join(""));
+        calcMem1 = parseFloat(displayArray.join(""));
         display.innerHTML += operator;
         displayArray = [];
     }
@@ -126,6 +127,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
             case btn0:
                 numberClick(0);
                 break;
+            case btnDec:
+                numberClick("."); 
+                break;
             case btnPlus:
                 if (calcMem1 != null) {
                     opClick("+");
@@ -163,7 +167,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
                 opClick("÷");
                 break;
             case btnEquals:
-                calcMem2 = parseInt(displayArray.join(""));
+                calcMem2 = parseFloat(displayArray.join(""));
                 operate(calcMem1, calcMem2, operation);
                 break;
         }
