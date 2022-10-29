@@ -123,6 +123,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
                 numberClick(0);
                 break;
             case btnDec:
+                if (displayArray.includes(".")) {
+                    break;
+                }
                 numberClick("."); 
                 break;
             case btnPlus:
