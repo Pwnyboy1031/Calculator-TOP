@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
             calcMem2 = parseFloat(displayArray.join(""));
             calcMem1 = operate(calcMem1,calcMem2,operation); 
             display.innerHTML = calcMem1 + operator;
-            console.log(calcMem1);
             displayArray = [];
             return;
         }
@@ -54,22 +53,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
         switch (operation) {
             case "add":
                 display.innerHTML = "";
-                console.log(num1,num2);
                 display.innerHTML = add(num1,num2);
                 return add(num1,num2);
             case "subtract":
                 display.innerHTML = "";
-                console.log(num1,num2);
                 display.innerHTML = subtract(num1,num2);
                 return subtract(num1,num2);
             case "multiply":
                 display.innerHTML = "";
-                console.log(num1,num2);
                 display.innerHTML = multiply(num1,num2);
                 return multiply(num1,num2);
             case "divide":
                 display.innerHTML = "";
-                console.log(num1,num2);
                 display.innerHTML = divide(num1,num2);
                 return divide(num1,num2);
         }
